@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Copyright>github.com/vpess</Copyright>
+    <Authors>Vinicius Pessanha</Authors>
+    <Description>Programa criado para executar reparar e reinstalar o Microsoft Teams.</Description>
+    <PackageProjectUrl>github.com/vpess/teams-fix</PackageProjectUrl>
+    <RepositoryUrl>github.com/vpess/teams-fix</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
