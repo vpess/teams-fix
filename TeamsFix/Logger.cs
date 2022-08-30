@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace TeamsFix
 {
@@ -16,7 +14,14 @@ namespace TeamsFix
             string dateTime = DateTime.Now.ToString();
             string logString = $"{dateTime}: {info}\n";
 
-            File.AppendAllText(LogFile, logString);
+            if (info == "")
+            {
+                File.AppendAllText(LogFile, info);
+            }
+            else
+            {
+                File.AppendAllText(LogFile, logString);
+            }
         }
     }
 }
