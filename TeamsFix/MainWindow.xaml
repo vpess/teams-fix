@@ -18,9 +18,9 @@
         <Button Name="Repair" Content="Reparar" Click="ButtonRepair" HorizontalAlignment="Left" Height="21" Margin="120,149,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="0.491,-0.977" Background="#FF1C1C1C" Foreground="White" Grid.ColumnSpan="3" BorderBrush="#FF505AC9"/>
         <Button Name="Reinstall" Content="Reinstalar" Click="ButtonReinstall" HorizontalAlignment="Left" Height="21" Margin="203,149,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="0.481,-0.141" Background="#FF1C1C1C" Foreground="White" Grid.Column="2" BorderBrush="#FF505AC9"/>
         <Label Content="" Name="LabelMsg" Visibility="Visible" Margin="74,220,0,0" VerticalAlignment="Top" Width="480" RenderTransformOrigin="0.489,-0.816" Height="38" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Foreground="#FF7B83EB" Grid.ColumnSpan="3"/>
-        <StackPanel Margin="0,0,101,2">
-            <Menu Width="55" Background="{x:Null}" BorderBrush="#FF505AC9">
-                <MenuItem Header="Sobre" Height="20" Foreground="White" Background="#FF1C1C1C" BorderBrush="#FF505AC9" Width="44"></MenuItem>
+        <StackPanel Margin="0,0,60,0">
+            <Menu Background="{x:Null}" BorderBrush="#FF505AC9" Width="90">
+                <MenuItem Header="Github" Click="ButtonGithub" Height="20" Width="50" Foreground="White" Background="#FF1C1C1C" BorderBrush="#FF505AC9"></MenuItem>
             </Menu>
         </StackPanel>
     </Grid>
