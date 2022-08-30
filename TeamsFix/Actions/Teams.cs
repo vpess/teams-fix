@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
 
 namespace TeamsFix.Actions
 {
@@ -19,11 +17,11 @@ namespace TeamsFix.Actions
 
         public static void Install()
         {
-            MainWindow.Window.Message("Iniciando a instalação do Microsoft Teams.");
             Download.Run();
 
             try
             {
+                MainWindow.Window.Message("Executando a instalação do Microsoft Teams...");
                 Process installTeams = ProcessOperation.Create("cmd.exe", InstallCmd);
                 installTeams.Start();
                 installTeams.WaitForExit();
@@ -38,7 +36,7 @@ namespace TeamsFix.Actions
 
         public static void Uninstall()
         {
-            MainWindow.Window.Message("Iniciando a desinstalação do Microsoft Teams.");
+            MainWindow.Window.Message("Executando a desinstalação do Microsoft Teams...");
 
             try
             {
@@ -56,15 +54,15 @@ namespace TeamsFix.Actions
 
         public static void Repair()
         {
-            MainWindow.Window.Message($@"Iniciando o reparo do Microsoft Teams.");
+            MainWindow.Window.Message($@"Executando o reparo do Microsoft Teams.");
             try
             {
                 Directory.Delete($@"{Path.roamingAppData}\Microsoft\Teams", true);
                 MainWindow.Window.Message($@"Arquivos em {Path.roamingAppData}\Microsoft\Teams removidos.");
             }
-            catch (Exception ex)
+            catch (DirectoryNotFoundException ex)
             {
-                MainWindow.Window.Message($"Ocorreu um erro na exclusão de pastas do Microsoft Teams.");
+                MainWindow.Window.Message($"Pasta de configuração do Microsoft Teams inexistente.");
                 Logger.InsertInfo(ex.ToString());
             }
         }
