@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -21,30 +22,12 @@ namespace TeamsFix
             Window = this;
         }
 
-        //TODO: Adicionar uma pequena aba "Sobre", com o link do meu github, versão e detalhes sobre o exe (localização do arquivo de logs, etc)
-        //TODO: Alterar as cores no momento em que o mouse fica sobre o botão
-
         private void ButtonRepair(object sender, RoutedEventArgs e)
         {
             new Thread(() =>
             {
                 ButtonStatus(false);
-
-                try
-                {
-                    Teams.KillProcesses();
-                    Teams.Repair();
-                    Window.Message("Reparo do Microsoft Teams concluído.");
-                    Thread.Sleep(5000);
-                    Window.Message("");
-                }
-                catch (Exception ex)
-                {
-                    Window.Message("Ocorreu um erro no reparo do Teams.");
-                    Logger.InsertInfo(ex.ToString());
-                    throw;
-                }
-
+                Setup.Repair();
                 ButtonStatus(true);
 
             }).Start();
@@ -55,26 +38,15 @@ namespace TeamsFix
             new Thread(() =>
             {
                 ButtonStatus(false);
-
-                try
-                {
-                    Teams.KillProcesses();
-                    Teams.Uninstall();
-                    Teams.Install();
-                    Window.Message("Reinstalação do Teams concluída.");
-                    Thread.Sleep(5000);
-                    Window.Message("");
-                }
-                catch (Exception ex)
-                {
-                    Window.Message("Ocorreu um erro na reinstalação do Teams.");
-                    Logger.InsertInfo(ex.ToString());
-                    throw;
-                }
-
+                Setup.Reinstall();
                 ButtonStatus(true);
 
             }).Start();
+        }
+
+        private void ButtonGithub(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://github.com/vpess/teams-fix") { UseShellExecute = true });
         }
 
         public void EnableButtons(bool option)
