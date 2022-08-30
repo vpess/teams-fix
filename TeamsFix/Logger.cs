@@ -16,7 +16,7 @@ namespace TeamsFix
 
             if (info == "")
             {
-                File.AppendAllText(LogFile, info);
+                File.AppendAllText(LogFile, $"{info}\n");
             }
             else
             {
