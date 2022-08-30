@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
+﻿using System.Net;
 
 namespace TeamsFix.Actions
 {
@@ -12,10 +9,11 @@ namespace TeamsFix.Actions
 
         public static void Run()
         {
-            using (var client = new WebClient())
+            using (var client = new WebClient { Proxy = null })
             {
-                MainWindow.Window.Message($"Baixando Teams_windows_x64.exe...");
+                MainWindow.Window.Message($"Baixando instalador...");
                 client.DownloadFile(Url, TeamsExe);
+                MainWindow.Window.Message($"Download concluído.");
             }
         }
     }
