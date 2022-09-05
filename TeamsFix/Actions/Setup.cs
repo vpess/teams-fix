@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 
@@ -6,19 +7,9 @@ namespace TeamsFix.Actions
 {
     class Setup
     {
-        private static void CheckTeams()
-        {
-            if (!Software.CheckInstallation("Microsoft Teams"))
-            {
-                MessageBox.Show("O Microsoft Teams não está instalado no sistema.", "Software nao encontrado", MessageBoxButton.OK, MessageBoxImage.Warning);
-                MainWindow.Window.Close();
-            }
-        }
 
         public static void Repair()
         {
-            CheckTeams();
-
             try
             {
                 Teams.KillProcesses();
@@ -37,8 +28,6 @@ namespace TeamsFix.Actions
 
         public static void Reinstall()
         {
-            CheckTeams();
-
             try
             {
                 Teams.KillProcesses();
