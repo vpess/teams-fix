@@ -8,11 +8,11 @@ using System.Windows;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
 [assembly: AssemblyTitle("TeamsFix")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Programa que corrige problemas generalizados do Microsoft Teams.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TeamsFix")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCopyright("Copyright ©  2022 https://github.com/vpess")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
