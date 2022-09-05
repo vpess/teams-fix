@@ -6,8 +6,8 @@ namespace TeamsFix.Actions
 {
     class Teams
     {
-        private static readonly string InstallCmd = $@"/C {Path.publicDocuments}\Teams_windows_x64.exe -s";
-        private static readonly string UninstallCmd = $@"/C {Path.localAppData}\Microsoft\Teams\Update.exe --uninstall -s";
+        private static readonly string InstallCmd = $@"/C {WorkDirectory.publicDocuments}\Teams_windows_x64.exe -s";
+        private static readonly string UninstallCmd = $@"/C {WorkDirectory.localAppData}\Microsoft\Teams\Update.exe --uninstall -s";
 
         public static void KillProcesses()
         {
@@ -57,8 +57,8 @@ namespace TeamsFix.Actions
             MainWindow.Window.Message($@"Executando o reparo do Microsoft Teams.");
             try
             {
-                Directory.Delete($@"{Path.roamingAppData}\Microsoft\Teams", true);
-                MainWindow.Window.Message($@"Arquivos em {Path.roamingAppData}\Microsoft\Teams removidos.");
+                Directory.Delete($@"{WorkDirectory.roamingAppData}\Microsoft\Teams", true);
+                MainWindow.Window.Message($@"Arquivos em {WorkDirectory.roamingAppData}\Microsoft\Teams removidos.");
             }
             catch (DirectoryNotFoundException ex)
             {

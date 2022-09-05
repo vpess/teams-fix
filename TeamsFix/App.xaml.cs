@@ -9,7 +9,7 @@ using System.Windows;
 namespace TeamsFix
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interação lógica para App.xaml
     /// </summary>
     public partial class App : Application
     {

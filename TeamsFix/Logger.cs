@@ -6,7 +6,7 @@ namespace TeamsFix
     class Logger
     {
         private static readonly string FileName = "teams_fix.log";
-        private static readonly string FilePath = $"{Path.localAppData}";
+        private static readonly string FilePath = $"{WorkDirectory.localAppData}";
         private static readonly string LogFile = $@"{FilePath}\{FileName}";
 
         public static void InsertInfo(string info)
