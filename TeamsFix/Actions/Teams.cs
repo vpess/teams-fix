@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 
 namespace TeamsFix.Actions
 {
@@ -15,6 +16,15 @@ namespace TeamsFix.Actions
             ProcessOperation.Kill("TEAMS");
         }
 
+        public static void Open()
+        {
+            MainWindow.Window.Message("Abrindo o Microsoft Teams...");
+            string openCmd = $@"/C 'START 'APP' '{WorkDirectory.localAppData}\Microsoft\Teams\current\Teams.exe''".Replace("'", "\""); ;
+            Process runTeams = ProcessOperation.Create("cmd.exe", openCmd);
+            runTeams.Start();
+            runTeams.WaitForExit();
+        }
+
         public static void Install()
         {
             Download.Run();
@@ -26,6 +36,7 @@ namespace TeamsFix.Actions
                 installTeams.Start();
                 installTeams.WaitForExit();
                 MainWindow.Window.Message("Instalação do Teams concluída.");
+                Open();
             }
             catch (Exception ex)
             {
@@ -59,6 +70,7 @@ namespace TeamsFix.Actions
             {
                 Directory.Delete($@"{WorkDirectory.roamingAppData}\Microsoft\Teams", true);
                 MainWindow.Window.Message($@"Arquivos em {WorkDirectory.roamingAppData}\Microsoft\Teams removidos.");
+                Open();
             }
             catch (DirectoryNotFoundException ex)
             {
